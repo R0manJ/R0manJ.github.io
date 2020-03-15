@@ -582,7 +582,65 @@
       
         
           
-            <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://gallery.technet.microsoft.com/Active-Directory-Firewall-bd21b246" target="_blank" rel="noopener">https://gallery.technet.microsoft.com/Active-Directory-Firewall-bd21b246</a></p>
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>If you are working on Active Directory environment and have domain joined systems that needs access to Active Directory that are on different or isolated networks separated by Firewall then you need to allow multiple Active Directory ports to pass through the Firewall. Below are the ports that I have validated and needs to be allowed for smooth member server / workstation and AD Communication, as well as for replication -</p>
+<h1 id="端口列表"><a href="#端口列表" class="headerlink" title="端口列表"></a>端口列表</h1><table>
+<thead>
+<tr>
+<th align="center">Port Description</th>
+<th align="center">Port Details</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">Kerberos</td>
+<td align="center">TCP-88,UDP-88</td>
+</tr>
+<tr>
+<td align="center">DNS</td>
+<td align="center">TCP-53,UDP-53</td>
+</tr>
+<tr>
+<td align="center">Global Catalog</td>
+<td align="center">TCP-3268</td>
+</tr>
+<tr>
+<td align="center">Global Catalog（Secure）</td>
+<td align="center">TCP-3269</td>
+</tr>
+<tr>
+<td align="center">LDAP</td>
+<td align="center">TCP-389，UDP-389</td>
+</tr>
+<tr>
+<td align="center">LDAP（Secure）</td>
+<td align="center">TCP-636</td>
+</tr>
+<tr>
+<td align="center">RPC/Replication</td>
+<td align="center">TCP -135</td>
+</tr>
+<tr>
+<td align="center">Time Service</td>
+<td align="center">UDP-123</td>
+</tr>
+<tr>
+<td align="center">Replication, User / Computer Authentication, Trusts and Group PolicyNetLogon, NetBIOS name ResolutionDFS , NetLogon</td>
+<td align="center">TCP-49152<del>65535,UDP-49152</del>65535</td>
+</tr>
+<tr>
+<td align="center">Kerberos Password Change</td>
+<td align="center">TCP-464,UDP-464</td>
+</tr>
+<tr>
+<td align="center">SMB(File Sharing)</td>
+<td align="center">TCP-139,445</td>
+</tr>
+<tr>
+<td align="center">DFSR</td>
+<td align="center">TCP-5722</td>
+</tr>
+</tbody></table>
+<h2 id="Replication"><a href="#Replication" class="headerlink" title="Replication"></a>Replication</h2><p>Replication uses the remote procedure call (RPC) transport. Replication connections can be created between any two domain controllers located in the same site. Connections can be made with multiple domain controllers to reduce replication latency.</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://gallery.technet.microsoft.com/Active-Directory-Firewall-bd21b246" target="_blank" rel="noopener">https://gallery.technet.microsoft.com/Active-Directory-Firewall-bd21b246</a></p>
 
           
         
