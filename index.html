@@ -414,8 +414,11 @@
 
 <h1 id="四、创建GitHub代码仓库与初始化hexo博客"><a href="#四、创建GitHub代码仓库与初始化hexo博客" class="headerlink" title="四、创建GitHub代码仓库与初始化hexo博客"></a>四、创建GitHub代码仓库与初始化hexo博客</h1><p>GITHUB创建代码仓库（略）</p>
 <p>创建空目录后执行初始化操作</p>
-<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">npm install --save hexo-deployer-git</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo init</span><br><span class="line"></span><br><span class="line">npm install --save hexo-deployer-git</span><br><span class="line"></span><br><span class="line"><span class="comment"># 生成标签页和目录页</span></span><br><span class="line">hexo new page tags</span><br><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
 
+<blockquote>
+<p>需要在tags和categories的页面里添加属性，type:”tags” 、type:”categories”</p>
+</blockquote>
 <p>配置hexo的 _config.yml 文件，设置git的相关账号。</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">git@github.com:R0manJ/R0manJ.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">master</span></span><br></pre></td></tr></table></figure>
 
@@ -2057,10 +2060,10 @@
               
               
               <div class="site-state-item site-state-categories">
-                
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">categories</span>
-                
+                </a>
               </div>
             
 
@@ -2068,10 +2071,10 @@
               
               
               <div class="site-state-item site-state-tags">
-                
+                <a href="/tags/index.html">
                   <span class="site-state-item-count">57</span>
                   <span class="site-state-item-name">tags</span>
-                
+                </a>
               </div>
             
 
