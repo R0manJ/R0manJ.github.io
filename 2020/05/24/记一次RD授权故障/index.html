@@ -87,7 +87,7 @@
 <meta property="og:description" content="故障现象Windows Server部署了RD会话的服务，需要指向RD授权服务器，否则只有120天的“宽限期限”。120天之后，是无法直接使用mstsc远程到目标服务器亦或是基于RD会话的服务也将不可用，例如VMware Horizon View的基于“RD会话主机”设立的RD桌面或者应用将不可用。 原因分析 RDSH资源机没有设置指向RD授权服务器、设置授权模式。 RDSH资源机设置RD授权服务">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-24T04:16:04.000Z">
-<meta property="article:modified_time" content="2020-05-24T04:32:17.605Z">
+<meta property="article:modified_time" content="2020-05-24T04:38:01.310Z">
 <meta property="article:author" content="Rohman.Zhu">
 <meta property="article:tag" content="故障">
 <meta name="twitter:card" content="summary">
@@ -411,7 +411,12 @@
 <li>将“设置远程桌面授权模式” ，设置为按用户。</li>
 </ol>
 <p>设置完后需要重启。</p>
-<h2 id="原因2："><a href="#原因2：" class="headerlink" title="原因2："></a>原因2：</h2>
+<h2 id="原因2："><a href="#原因2：" class="headerlink" title="原因2："></a>原因2：</h2><blockquote>
+<p>“RDSH资源机设置RD授权服务器后没有生效。”</p>
+</blockquote>
+<p>我在每台服务器上面运行了注册表后，没有重启服务器。每台服务器虽然不再提示“远程桌面授权模式尚未配置”的告警，并且在RD诊断器中，可以看到已经连接授权服务器，但本质上是没有生效的。</p>
+<pre><code class="reg"></code></pre>
+
       
     </div>
     
