@@ -400,7 +400,18 @@
 <li>RDSH资源机设置RD授权服务器后没有生效。</li>
 <li>RD授权服务器宕机，无法正常提供服务。</li>
 </ol>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="原因1："><a href="#原因1：" class="headerlink" title="原因1："></a>原因1：</h2><blockquote>
+<p>“RDSH资源机没有设置指向RD授权服务器、设置授权模式。”</p>
+</blockquote>
+<p>设置方法：</p>
+<ol>
+<li>进入组策略编辑器 gpedit.msc</li>
+<li>选择Windows组件 -&gt; 远程桌面服务 -&gt; 远程桌面会话主机 -&gt; 授权 </li>
+<li>将“使用指定的远程桌面许可证服务器”，设置为目标RD授权服务器。</li>
+<li>将“设置远程桌面授权模式” ，设置为按用户。</li>
+</ol>
+<p>设置完后需要重启。</p>
+<h2 id="原因2："><a href="#原因2：" class="headerlink" title="原因2："></a>原因2：</h2>
           
         
       

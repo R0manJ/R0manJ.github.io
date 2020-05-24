@@ -87,7 +87,7 @@
 <meta property="og:description" content="故障现象Windows Server部署了RD会话的服务，需要指向RD授权服务器，否则只有120天的“宽限期限”。120天之后，是无法直接使用mstsc远程到目标服务器亦或是基于RD会话的服务也将不可用，例如VMware Horizon View的基于“RD会话主机”设立的RD桌面或者应用将不可用。 原因分析 RDSH资源机没有设置指向RD授权服务器、设置授权模式。 RDSH资源机设置RD授权服务">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-24T04:16:04.000Z">
-<meta property="article:modified_time" content="2020-05-24T04:24:49.408Z">
+<meta property="article:modified_time" content="2020-05-24T04:32:17.605Z">
 <meta property="article:author" content="Rohman.Zhu">
 <meta property="article:tag" content="故障">
 <meta name="twitter:card" content="summary">
@@ -400,7 +400,18 @@
 <li>RDSH资源机设置RD授权服务器后没有生效。</li>
 <li>RD授权服务器宕机，无法正常提供服务。</li>
 </ol>
-<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><h2 id="原因1："><a href="#原因1：" class="headerlink" title="原因1："></a>原因1：</h2><blockquote>
+<p>“RDSH资源机没有设置指向RD授权服务器、设置授权模式。”</p>
+</blockquote>
+<p>设置方法：</p>
+<ol>
+<li>进入组策略编辑器 gpedit.msc</li>
+<li>选择Windows组件 -&gt; 远程桌面服务 -&gt; 远程桌面会话主机 -&gt; 授权 </li>
+<li>将“使用指定的远程桌面许可证服务器”，设置为目标RD授权服务器。</li>
+<li>将“设置远程桌面授权模式” ，设置为按用户。</li>
+</ol>
+<p>设置完后需要重启。</p>
+<h2 id="原因2："><a href="#原因2：" class="headerlink" title="原因2："></a>原因2：</h2>
       
     </div>
     
@@ -570,7 +581,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#故障现象"><span class="nav-number">1.</span> <span class="nav-text">故障现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因分析"><span class="nav-number">2.</span> <span class="nav-text">原因分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#故障现象"><span class="nav-number">1.</span> <span class="nav-text">故障现象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#原因分析"><span class="nav-number">2.</span> <span class="nav-text">原因分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解决方法"><span class="nav-number">3.</span> <span class="nav-text">解决方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#原因1："><span class="nav-number">3.1.</span> <span class="nav-text">原因1：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原因2："><span class="nav-number">3.2.</span> <span class="nav-text">原因2：</span></a></li></ol></li></ol></div>
             
 
           </div>
