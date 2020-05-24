@@ -270,6 +270,189 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2018/11/18/Linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rohman.Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="R0hman の 实验室">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/18/Linux-%E5%BF%98%E8%AE%B0root%E5%AF%86%E7%A0%81/" itemprop="url">Linux-忘记root密码</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-18T19:05:22+08:00">
+                2018-11-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>有时候一台 Linux 虚拟机放太久了，又没有做注释，初始密码就容易忘记。</p>
+<p>前提条件：</p>
+<ul>
+<li>MBR + Grub 的方式引导系统启动。</li>
+</ul>
+<h1 id="CentOS密码忘记"><a href="#CentOS密码忘记" class="headerlink" title="CentOS密码忘记"></a>CentOS密码忘记</h1><ul>
+<li>进入 grub 菜单后，对想要编辑的菜单项按 [E] 键编辑；</li>
+<li>再将光标移到 Kernel 上方再点 [E] 键编辑；</li>
+<li>在末尾添加 single ：</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">grub edit &gt; kernel &#x2F;vmlinuz-2.6.18-92.e15 ro root&#x3D;LABEL&#x3D;&#x2F; rhgb quiet single</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>按 [回车] 键后， 按 [B] 键即可进入单用户维护模式了。</li>
+</ul>
+<h1 id="Ubuntu-进入恢复模式"><a href="#Ubuntu-进入恢复模式" class="headerlink" title="Ubuntu 进入恢复模式"></a>Ubuntu 进入恢复模式</h1><ul>
+<li>开机长按 [Shift] 键进入 grub 菜单；</li>
+<li>进入高级菜单 [Advanced options for Ubuntu] ；</li>
+<li>选择任意一个恢复模式；</li>
+<li>选择 “root Drop to root shell prompt”;</li>
+<li>重新挂载 / 目录 ， mount -o remount,rw /</li>
+<li>再去修改密码。</li>
+</ul>
+<h1 id="Ubuntu-修改内核启动参数"><a href="#Ubuntu-修改内核启动参数" class="headerlink" title="Ubuntu 修改内核启动参数"></a>Ubuntu 修改内核启动参数</h1><ul>
+<li>开机长按 [Shift] 键进入 grub 菜单；</li>
+<li>进入高级菜单 [Advanced options for Ubuntu] ；</li>
+<li>选择任意一个恢复模式,按 [E] 键编辑；</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将 linux 那一行的末尾 ro single 改成 rw single init=/bin/bash</span></span><br><span class="line">rw single init=/bin/bash</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>按 [Ctrl] + [X] 进入单用户模式，修改密码。</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2018/11/18/%E4%B8%BAGrub%E8%8F%9C%E5%8D%95%E6%B7%BB%E5%8A%A0%E5%AF%86%E7%A0%81/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1883,168 +2066,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2018/11/07/%E5%BE%85%E8%A1%A5%E5%85%85-Vmware%E7%BB%99Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%83%AD%E6%B7%BB%E5%8A%A0%E7%A1%AC%E7%9B%98/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rohman.Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="R0hman の 实验室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/07/%E5%BE%85%E8%A1%A5%E5%85%85-Vmware%E7%BB%99Linux%E8%99%9A%E6%8B%9F%E6%9C%BA%E7%83%AD%E6%B7%BB%E5%8A%A0%E7%A1%AC%E7%9B%98/" itemprop="url">Vmware给Linux虚拟机热添加硬盘并创建LVM分区实例</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-07T22:46:14+08:00">
-                2018-11-07
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>一般情况下，虚拟机肯定会有硬盘扩容的需求，而且大多数生产环境下，机器还不允许关机添加。目前遇到可以热添加的是Vmware的虚拟机，用的scsi硬盘，因此做一下操作记录，以便复习。</p>
-<h1 id="操作记录"><a href="#操作记录" class="headerlink" title="操作记录"></a>操作记录</h1><p>在Vmware的控制面板上，添加scsi硬盘即可。</p>
-<p>进入Linux系统则需要扫描scsi硬件。</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 输入以下指令</span></span><br><span class="line">echo "- - -" &gt; /sys/class/scsi_host/host*/scan</span><br><span class="line"><span class="meta">#</span><span class="bash"> 这里 - - - 之间有两个空格</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> host* 不会生效，目前不知道原因</span></span><br></pre></td></tr></table></figure>
-
-<p>改进版扫描脚本v1</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">hostNumber=0</span><br><span class="line"><span class="meta">#</span><span class="bash"> 因为 scsi_host 文件夹下又33个host文件夹</span></span><br><span class="line">while [ $hostNumber -l 33]</span><br><span class="line">do</span><br><span class="line">    echo "$hostNumber. host has been scaned."</span><br><span class="line">    echo "- - -" &gt; /sys/class/scsi_host/host$hostNumber/scan</span><br><span class="line">    hostNumber=$(( hostNumber + 1 ))</span><br><span class="line">done</span><br></pre></td></tr></table></figure>
-
-<p>给脚本添加执行权限即可。</p>
-<p>运行脚本后，扫描到新添加的硬盘 sdb ，接下来开始创建LVM分区</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">fdisk /dev/sdb</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">---fdisk---</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建分区</span></span><br><span class="line">n</span><br><span class="line"><span class="meta">#</span><span class="bash"> 选择主分区</span></span><br><span class="line">p</span><br><span class="line"><span class="meta">#</span><span class="bash"> 分区编号，默认为1</span></span><br><span class="line">1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 起始扇区 ，默认即可</span></span><br><span class="line">回车</span><br><span class="line"><span class="meta">#</span><span class="bash"> 结束扇区，默认即可</span></span><br><span class="line">回车</span><br><span class="line"><span class="meta">#</span><span class="bash"> 更改分区类型</span></span><br><span class="line">t</span><br><span class="line"><span class="meta">#</span><span class="bash"> 选择需要更改的分区</span></span><br><span class="line">1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 改为 LVM 类型</span></span><br><span class="line">8e</span><br><span class="line"><span class="meta">#</span><span class="bash"> 写入分区表</span></span><br><span class="line">w</span><br><span class="line"><span class="meta">#</span><span class="bash">---fdisk---</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建 pv</span></span><br><span class="line">pvcreate /dev/sdb1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建 vg</span></span><br><span class="line">vgcreate vg-data /dev/sdb1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建 lv</span></span><br><span class="line">lvcreate -n lv-data -l 100%VG vg-data</span><br><span class="line"><span class="meta">#</span><span class="bash"> 格式化lv</span></span><br><span class="line">mkfs.ext4 /dev/vg-data/lv-data</span><br><span class="line"><span class="meta">#</span><span class="bash"> 挂载lv</span></span><br><span class="line">mount /dev/vg-data/lv-data /data</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改 fstab 列表</span></span><br><span class="line"><span class="meta">#</span><span class="bash">---fstab---</span></span><br><span class="line">/dev/mapper/vg-data-lv-data /data ext4 default 0 0</span><br><span class="line"><span class="meta">#</span><span class="bash">---fstab---</span></span><br></pre></td></tr></table></figure>
-<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>需要补充SCSI方面的知识，并且解决脚本识别有多少个host文件的问题， 以及Linux内核扫描的原理。</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2095,7 +2116,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">191</span>
+                  <span class="site-state-item-count">192</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -2106,7 +2127,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -2117,7 +2138,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">63</span>
+                  <span class="site-state-item-count">64</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
