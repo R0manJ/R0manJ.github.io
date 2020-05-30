@@ -87,7 +87,7 @@
 <meta property="og:description" content="故障描述服务器在凌晨2点左右自动重启了。 原因分析 打开事件查看器，看到有安装补丁的提示“将在15分钟内重启” 事件ID，1074。 在C:\Windows\下的windowsupdates.log存在expire记录。（而不是deadline）   可得直接原因： 系统自动安装补丁后，触发的自动重启。  然而我们的服务器补丁策略应该不是默认安装的，应该是哪里设置错误了。  WSUS服务器已经没有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-05-30T09:59:23.000Z">
-<meta property="article:modified_time" content="2020-05-30T10:20:23.156Z">
+<meta property="article:modified_time" content="2020-05-30T10:45:11.632Z">
 <meta property="article:author" content="Rohman.Zhu">
 <meta property="article:tag" content="故障">
 <meta name="twitter:card" content="summary">
@@ -407,8 +407,19 @@
 <blockquote>
 <p>WSUS服务器已经没有对补丁设置Deadline，服务器默认只能搜索到补丁，并且提示安装，并不是默认安装。</p>
 </blockquote>
-<p>进入服务器的注册表</p>
-<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1>
+<p>进入服务器运行rsop.msc ，查看更新的组策略跟目标策略不一致。当前策略设置的是默认安装补丁，即是“计划安装”，而不是“提示安装”。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">管理模板--》Windows组件--》Windows Update</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>根本原因：服务器设置了错误的OU，导致补丁到服务器中是默认安装补丁。</p>
+</blockquote>
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><p>在域控中，将目标服务器转移OU。</p>
+<p>后续改造：</p>
+<ol>
+<li>域控的OU策略，统一改成提示安装。</li>
+<li>WSUS服务器不设置审批期限。</li>
+</ol>
+
       
     </div>
     
