@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="运维,IT," />
+  <meta name="keywords" content="工具," />
 
 
 
@@ -79,18 +79,17 @@
 
 
 
-<meta name="description" content="前言工作也一年多了，期间参与过几个变更项目，虽然如今也是一只小菜鸡，但有过几次体验后，在面对其他变更时也不至于手忙脚乱。 清楚“变更的需求”对于接到任务之后，就不假思索的去做，是很可怕的，因为你并不知道做这件事情的意义。每一次变更就和开车并道一样，并一次就多一分产生车祸的风险，需要清楚衡量变更的意义和价值，权衡风险和价值的轻重，才可以对此次变更进行有效的精力投入评估。  我们必须要问自己一句：这个">
+<meta name="description" content="dmidecodedmidecode在 Linux 系统下获取有关硬件方面的信息。dmidecode 遵循 SMBIOS&#x2F;DMI 标准，以一种可读的方式dump出机器的DMI(Desktop Management Interface)信息, 其输出的信息包括 BIOS、系统、主板、处理器、内存、缓存等等, 既可以得到当前的配置，也可以得到系统支持的最大配置，比如说支持的最大内存数等。 安装1234">
 <meta property="og:type" content="article">
-<meta property="og:title" content="变更过程的意识">
-<meta property="og:url" content="http://github.com/r0manj/2019/11/28/%E5%8F%98%E6%9B%B4%E8%BF%87%E7%A8%8B%E7%9A%84%E6%84%8F%E8%AF%86/index.html">
+<meta property="og:title" content="Linux下dmidecode命令获取硬件信息">
+<meta property="og:url" content="http://github.com/r0manj/2020/05/30/Linux%E4%B8%8Bdmidecode%E5%91%BD%E4%BB%A4%E8%8E%B7%E5%8F%96%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF/index.html">
 <meta property="og:site_name" content="R0hman の 实验室">
-<meta property="og:description" content="前言工作也一年多了，期间参与过几个变更项目，虽然如今也是一只小菜鸡，但有过几次体验后，在面对其他变更时也不至于手忙脚乱。 清楚“变更的需求”对于接到任务之后，就不假思索的去做，是很可怕的，因为你并不知道做这件事情的意义。每一次变更就和开车并道一样，并一次就多一分产生车祸的风险，需要清楚衡量变更的意义和价值，权衡风险和价值的轻重，才可以对此次变更进行有效的精力投入评估。  我们必须要问自己一句：这个">
+<meta property="og:description" content="dmidecodedmidecode在 Linux 系统下获取有关硬件方面的信息。dmidecode 遵循 SMBIOS&#x2F;DMI 标准，以一种可读的方式dump出机器的DMI(Desktop Management Interface)信息, 其输出的信息包括 BIOS、系统、主板、处理器、内存、缓存等等, 既可以得到当前的配置，也可以得到系统支持的最大配置，比如说支持的最大内存数等。 安装1234">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2019-11-28T15:30:04.000Z">
-<meta property="article:modified_time" content="2020-03-15T12:25:38.766Z">
+<meta property="article:published_time" content="2020-05-30T13:44:32.000Z">
+<meta property="article:modified_time" content="2020-05-30T14:47:36.837Z">
 <meta property="article:author" content="Rohman.Zhu">
-<meta property="article:tag" content="运维">
-<meta property="article:tag" content="IT">
+<meta property="article:tag" content="工具">
 <meta name="twitter:card" content="summary">
 
 
@@ -121,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://github.com/r0manj/2019/11/28/变更过程的意识/"/>
+  <link rel="canonical" href="http://github.com/r0manj/2020/05/30/Linux下dmidecode命令获取硬件信息/"/>
 
 
 
 
 
-  <title>变更过程的意识 | R0hman の 实验室</title>
+  <title>Linux下dmidecode命令获取硬件信息 | R0hman の 实验室</title>
   
 
 
@@ -275,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2019/11/28/%E5%8F%98%E6%9B%B4%E8%BF%87%E7%A8%8B%E7%9A%84%E6%84%8F%E8%AF%86/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2020/05/30/Linux%E4%B8%8Bdmidecode%E5%91%BD%E4%BB%A4%E8%8E%B7%E5%8F%96%E7%A1%AC%E4%BB%B6%E4%BF%A1%E6%81%AF/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rohman.Zhu">
@@ -292,7 +291,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">变更过程的意识</h1>
+          <h1 class="post-title" itemprop="name headline">Linux下dmidecode命令获取硬件信息</h1>
         
 
         <div class="post-meta">
@@ -304,8 +303,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-11-28T23:30:04+08:00">
-                2019-11-28
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-05-30T21:44:32+08:00">
+                2020-05-30
               </time>
             
 
@@ -327,8 +326,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E6%9D%82%E8%B0%88/" itemprop="url" rel="index">
-                    <span itemprop="name">杂谈</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -395,26 +394,28 @@
       
 
       
-        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>工作也一年多了，期间参与过几个变更项目，虽然如今也是一只小菜鸡，但有过几次体验后，在面对其他变更时也不至于手忙脚乱。</p>
-<h2 id="清楚“变更的需求”"><a href="#清楚“变更的需求”" class="headerlink" title="清楚“变更的需求”"></a>清楚“变更的需求”</h2><p>对于接到任务之后，就不假思索的去做，是很可怕的，因为你并不知道做这件事情的意义。每一次变更就和开车并道一样，并一次就多一分产生车祸的风险，需要清楚衡量变更的意义和价值，权衡风险和价值的轻重，才可以对此次变更进行有效的精力投入评估。</p>
-<blockquote>
-<p>我们必须要问自己一句：这个变更一定要做吗，是否值得对需求方提出挑战？</p>
-</blockquote>
-<h2 id="清楚“变更的合适时间”"><a href="#清楚“变更的合适时间”" class="headerlink" title="清楚“变更的合适时间”"></a>清楚“变更的合适时间”</h2><p>假设每次变更都有产生故障的可能性，那么就必须要确认清楚最佳变更时间。有几个原则：</p>
-<ol>
-<li>避开本产品线业务高峰期、关键期；</li>
-<li>和同产品线的其他变更互斥；</li>
-<li>和相关产品线的其他变更互斥。</li>
-</ol>
-<p>建议把变更看成一个项目进行推进，每个环节的进展需要同步告知干系人，干系人负责进行风险评估。</p>
-<h2 id="成为“变更的项目经理”"><a href="#成为“变更的项目经理”" class="headerlink" title="成为“变更的项目经理”"></a>成为“变更的项目经理”</h2><p>打个比方，消防员在冲进火场的时候，需要确认是否仍有可能的爆炸源，否则被炸因公殉职也是自己的责任。运维在职能上和消防员类似，出现故障（火灾）的时候去歼灭故障源（火源），在执行变更的时候也需要多留一个心眼，反复确认上下游干系业务，才能进行变更规划（其实故障处理也是一次紧急变更）。任何一次变更都要当做一个项目进行运作，清楚干系人，把控风险，制定合理的步骤和时间节点，我们要把他看成一个持续若干天的项目推进，也就是说变更其实在接到需求的那一刻就开始了。</p>
-<h2 id="“遵循变更流程”"><a href="#“遵循变更流程”" class="headerlink" title="“遵循变更流程”"></a>“遵循变更流程”</h2><p>似曾相识的场景：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">我：为什么要先做 raid 再告诉同事忽略报警？</span><br><span class="line">A：这样也没什么问题吗，不就是骚扰大家一下，我也提醒了。</span><br><span class="line">我：为什么不走流程，先关报警再变更？</span><br><span class="line">A：没必要吧，SA每天这么多操作都需要这样？</span><br><span class="line">我：不关注细节，终会酿成大错，当年我因为没有关注流程出现过600个节点同时宕机的误操作。假设你的报警淹没了当时的其他重要报警，我们晚发现核心业务故障5分钟，你知道损失是多少吗？</span><br><span class="line">A：……（惭愧）</span><br></pre></td></tr></table></figure>
+        <h1 id="dmidecode"><a href="#dmidecode" class="headerlink" title="dmidecode"></a>dmidecode</h1><p>dmidecode在 Linux 系统下获取有关硬件方面的信息。dmidecode 遵循 SMBIOS/DMI 标准，以一种可读的方式dump出机器的DMI(Desktop Management Interface)信息, 其输出的信息包括 BIOS、系统、主板、处理器、内存、缓存等等, 既可以得到当前的配置，也可以得到系统支持的最大配置，比如说支持的最大内存数等。</p>
+<h1 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Debian/Ubuntu</span></span><br><span class="line">aptitude install dmidecode</span><br><span class="line"><span class="comment"># Fedora</span></span><br><span class="line">yum installl dmidecode</span><br><span class="line"><span class="comment"># Arch Linux</span></span><br><span class="line">pacman -S dmidecode</span><br><span class="line"><span class="comment"># Gentoo</span></span><br><span class="line">emerge -av dmidecode</span><br></pre></td></tr></table></figure>
 
-<p>变更的大致流程是：需求确认 -&gt; 干系业务/人确定 -&gt; 方案探讨 -&gt; 方案确立&amp;时间确立 -&gt; 变更单撰写 -&gt; 变更单 review -&gt; 审批报备 -&gt; 变更通告 -&gt; 方案实施 -&gt; 方案效果反馈 (-&gt; 回滚方案)，可酌情进行步骤删减。</p>
-<p>遵循变更流程的主要好处是，首先，你可以在整理变更步骤的时候仔细思考每一处风险点，多次变更之后可以固化下来风险相对较小的标准化文档，后续可以把重复操作自动化。其次，风险均摊及最小化，方案是大家探讨后确定的，时间是大家商量后认可的，流程是经过审批报备的。</p>
-<p>真的，如果把类似的流程贯彻下去，因为变更产生故障的概率会大大降低。<br>现在成熟的公司运维团队，都已经把类似的流程固化到运维平台里了，但是又有多少团队的负责人真正在遵循，而不是随便审批了事呢？不要和我谈业务压力有多大，不要和我谈缺人手，原则是不能却步的，否则捡了芝麻丢了西瓜。</p>
-<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="https://www.jianshu.com/p/16e952ca444a" target="_blank" rel="noopener">https://www.jianshu.com/p/16e952ca444a</a></p>
+<h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、查看内存槽数、那个槽位插了内存，大小是多少</span></span><br><span class="line">dmidecode|grep -P -A5 <span class="string">"Memory\s+Device"</span>|grep Size|grep -v Range</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2、查看最大支持内存数</span></span><br><span class="line"></span><br><span class="line">dmidecode|grep -P <span class="string">'Maximum\s+Capacity'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 3、查看槽位上内存的速率，没插就是unknown。</span></span><br><span class="line"></span><br><span class="line">dmidecode|grep -A16 <span class="string">"Memory Device"</span>|grep <span class="string">'Speed'</span></span><br></pre></td></tr></table></figure>
+
+<p>输出格式：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Handle 0×0002</span><br><span class="line">DMI <span class="built_in">type</span> 2, 8 bytes</span><br><span class="line">Base Board Information</span><br><span class="line">Manufacturer:Intel</span><br><span class="line">Product Name: C440GX+</span><br><span class="line">Version: 727281-0001</span><br><span class="line">Serial Number: INCY92700942</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>recode id(handle): DMI表中的记录标识符，这是唯一的,比如上例中的Handle 0×0002。</li>
+<li>dmi type id: 记录的类型，譬如说:BIOS，Memory，上例是type 2，即”Base Board Information”</li>
+<li>recode size: DMI表中对应记录的大小，上例为8 bytes.（不包括文本信息，所有实际输出的内容比这个size要更大。）<br>记录头之后就是记录的值：</li>
+<li>decoded values: 记录值可以是多行的，比如上例显示了主板的制造商(manufacturer)、model、version以及serial Number。</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 最简单的的显示全部dmi信息：</span></span><br><span class="line"><span class="comment">#这样将输出所有的dmi信息，你可能会被一大堆的信息吓坏，通常可以使用下面的方法。</span></span><br><span class="line">dmidecode</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 2.更精简的信息显示：</span></span><br><span class="line"><span class="comment"># -q(–quite) 只显示必要的信息，这个很管用哦。</span></span><br><span class="line"></span><br><span class="line">dmidecode -q</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3.显示指定类型的信息：</span></span><br><span class="line"><span class="comment"># 通常我只想查看某类型，比如CPU，内存或者磁盘的信息而不是全部的。这可以使用-t(–type TYPE)来指定信息类型：</span></span><br><span class="line"><span class="comment"># (显示bios和processor)</span></span><br><span class="line">dmidecode -t 0,4 </span><br><span class="line"></span><br><span class="line"><span class="comment"># 4. 通过关键字查询信息</span></span><br><span class="line">dmidecode -s system-serial-number</span><br><span class="line"><span class="comment">#-s (–string keyword)支持的keyword包括：bios-vendor,bios-version, bios-release-date,system-manufacturer, system-product-name, system-version, system-serial-number,baseboard-manu-facturer,baseboard-product-name, baseboard-version, baseboard-serial-number, baseboard-asset-tag,chassis-manufacturer, chas-sis-version, chassis-serial-number, chassis-asset-tag,processor-manufacturer, processor-version.</span></span><br></pre></td></tr></table></figure>
+
+<p>Type Information</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">0 BIOS</span><br><span class="line">1 System</span><br><span class="line">2 Base Board</span><br><span class="line">3 Chassis</span><br><span class="line">4 Processor</span><br><span class="line">5 Memory Controller</span><br><span class="line">6 Memory Module</span><br><span class="line">7 Cache</span><br><span class="line">8 Port Connector</span><br><span class="line">9 System Slots</span><br><span class="line">10 On Board Devices</span><br><span class="line">11 OEM Strings</span><br><span class="line">12 System Configuration Options</span><br><span class="line">13 BIOS Language</span><br><span class="line">14 Group Associations</span><br><span class="line">15 System Event Log</span><br><span class="line">16 Physical Memory Array</span><br><span class="line">17 Memory Device</span><br><span class="line">18 32-bit Memory Error</span><br><span class="line">19 Memory Array Mapped Address</span><br><span class="line">20 Memory Device Mapped Address</span><br><span class="line">21 Built-in Pointing Device</span><br><span class="line">22 Portable Battery</span><br><span class="line">23 System Reset</span><br><span class="line">24 Hardware Security</span><br><span class="line">25 System Power Controls</span><br><span class="line">26 Voltage Probe</span><br><span class="line">27 Cooling Device</span><br><span class="line">28 Temperature Probe</span><br><span class="line">29 Electrical Current Probe</span><br><span class="line">30 Out-of-band Remote Access</span><br><span class="line">31 Boot Integrity Services</span><br><span class="line">32 System Boot</span><br><span class="line">33 64-bit Memory Error</span><br><span class="line">34 Management Device</span><br><span class="line">35 Management Device Component</span><br><span class="line">36 Management Device Threshold Data</span><br><span class="line">37 Memory Channel</span><br><span class="line">38 IPMI Device</span><br><span class="line">39 Power Supply</span><br></pre></td></tr></table></figure>
+
+<h1 id="实例：-查看当前服务器支持可扩容的内存"><a href="#实例：-查看当前服务器支持可扩容的内存" class="headerlink" title="实例： 查看当前服务器支持可扩容的内存"></a>实例： 查看当前服务器支持可扩容的内存</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看当前内存大小</span></span><br><span class="line">free </span><br><span class="line">cat /proc/meminfo</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用dmidecode</span></span><br><span class="line">dmidecode -t 16 | grep Maximum</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看内存插槽</span></span><br><span class="line">dmidecode -t 17</span><br><span class="line">dmidecode -t 17 | grep Size</span><br><span class="line"><span class="comment"># 如果Size为No Module Installed 表示该插槽当前未有插入内存。</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="http://www.ttlsa.com/linux/the-linux-dmidecode-command-to-get-the-hardware-information/" target="_blank" rel="noopener">http://www.ttlsa.com/linux/the-linux-dmidecode-command-to-get-the-hardware-information/</a></p>
 
       
     </div>
@@ -432,9 +433,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag"># 运维</a>
-          
-            <a href="/tags/IT/" rel="tag"># IT</a>
+            <a href="/tags/%E5%B7%A5%E5%85%B7/" rel="tag"># 工具</a>
           
         </div>
       
@@ -447,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/17/LINUX-DCHP%E6%9C%8D%E5%8A%A1%E6%90%AD%E5%BB%BA/" rel="next" title="LINUX-DHCP服务搭建">
-                <i class="fa fa-chevron-left"></i> LINUX-DHCP服务搭建
+              <a href="/2020/05/30/Linux%E4%B8%8B%E7%9A%84%E6%95%B4%E5%88%97%E5%8D%A1%E5%B7%A5%E5%85%B7/" rel="next" title="Linux下的整列卡工具">
+                <i class="fa fa-chevron-left"></i> Linux下的整列卡工具
               </a>
             
           </div>
@@ -456,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/12/14/Ubuntu-Q-A/" rel="prev" title="Ubuntu--Q&A">
-                Ubuntu--Q&A <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -591,7 +586,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#清楚“变更的需求”"><span class="nav-number">1.1.</span> <span class="nav-text">清楚“变更的需求”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#清楚“变更的合适时间”"><span class="nav-number">1.2.</span> <span class="nav-text">清楚“变更的合适时间”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#成为“变更的项目经理”"><span class="nav-number">1.3.</span> <span class="nav-text">成为“变更的项目经理”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#“遵循变更流程”"><span class="nav-number">1.4.</span> <span class="nav-text">“遵循变更流程”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">1.5.</span> <span class="nav-text">参考资料</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#dmidecode"><span class="nav-number">1.</span> <span class="nav-text">dmidecode</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#安装"><span class="nav-number">2.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#使用"><span class="nav-number">3.</span> <span class="nav-text">使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实例：-查看当前服务器支持可扩容的内存"><span class="nav-number">4.</span> <span class="nav-text">实例： 查看当前服务器支持可扩容的内存</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
