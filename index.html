@@ -427,7 +427,7 @@
 
 <h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><p>UAC将Administrators组的成员视为标准用户。</p>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><h2 id="临时解决方法："><a href="#临时解决方法：" class="headerlink" title="临时解决方法："></a>临时解决方法：</h2><p>在管理员模式下执行 net use 重新映射</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use \\[NAS IP]\Volume Name  [映射盘符]</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net use [映射盘符]    \\[NAS IP]\Volume Name</span><br></pre></td></tr></table></figure>
 
 <h2 id="根治方法："><a href="#根治方法：" class="headerlink" title="根治方法："></a>根治方法：</h2><ol>
 <li>单击“ 开始”，在“ 启动程序和文件”框中键入regedit，然后按Enter。</li>
