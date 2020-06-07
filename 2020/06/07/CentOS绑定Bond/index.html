@@ -79,15 +79,15 @@
 
 
 
-<meta name="description" content="参考资料https:&#x2F;&#x2F;www.snel.com&#x2F;support&#x2F;setup-lacp-bonding-interface-centos-7&#x2F;">
+<meta name="description" content="操作步骤 sudo 或者 root 权限下操作。 关闭NetworkManager （system disable NetworkManager) 配置DNS（&#x2F;etc&#x2F;resolv.conf) 加载bonding模块（modprobe bonding） 设置网卡配置文件。  创建bond0网卡配置文件vim &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-bond0 1">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CentOS7绑定Bond">
 <meta property="og:url" content="http://github.com/r0manj/2020/06/07/CentOS%E7%BB%91%E5%AE%9ABond/index.html">
 <meta property="og:site_name" content="R0hman の 实验室">
-<meta property="og:description" content="参考资料https:&#x2F;&#x2F;www.snel.com&#x2F;support&#x2F;setup-lacp-bonding-interface-centos-7&#x2F;">
+<meta property="og:description" content="操作步骤 sudo 或者 root 权限下操作。 关闭NetworkManager （system disable NetworkManager) 配置DNS（&#x2F;etc&#x2F;resolv.conf) 加载bonding模块（modprobe bonding） 设置网卡配置文件。  创建bond0网卡配置文件vim &#x2F;etc&#x2F;sysconfig&#x2F;network-scripts&#x2F;ifcfg-bond0 1">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-06-07T05:04:56.000Z">
-<meta property="article:modified_time" content="2020-06-07T05:12:28.307Z">
+<meta property="article:modified_time" content="2020-06-07T05:29:24.363Z">
 <meta property="article:author" content="Rohman.Zhu">
 <meta property="article:tag" content="Network">
 <meta name="twitter:card" content="summary">
@@ -405,7 +405,26 @@
       
 
       
-        <h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.snel.com/support/setup-lacp-bonding-interface-centos-7/" target="_blank" rel="noopener">https://www.snel.com/support/setup-lacp-bonding-interface-centos-7/</a></p>
+        <h1 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h1><ol>
+<li>sudo 或者 root 权限下操作。</li>
+<li>关闭NetworkManager （system disable NetworkManager)</li>
+<li>配置DNS（/etc/resolv.conf)</li>
+<li>加载bonding模块（modprobe bonding）</li>
+<li>设置网卡配置文件。</li>
+</ol>
+<h2 id="创建bond0网卡配置文件"><a href="#创建bond0网卡配置文件" class="headerlink" title="创建bond0网卡配置文件"></a>创建bond0网卡配置文件</h2><p>vim /etc/sysconfig/network-scripts/ifcfg-bond0</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">DEVICE&#x3D;bond0</span><br><span class="line">Type&#x3D;Bond</span><br><span class="line">NAME&#x3D;bond0</span><br><span class="line">BONDING_ASTER&#x3D;yes</span><br><span class="line">BOOTPROTO&#x3D;none</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">IPADDR&#x3D;192.168.1.1</span><br><span class="line">PREFIX&#x3D;24</span><br><span class="line">GATEWAY&#x3D;192.168.1.254</span><br><span class="line">NM_CONTROLLED&#x3D;no</span><br><span class="line">BONDING_OPTS&#x3D;&quot;mode&#x3D;4 miimon&#x3D;100 lacp_rate&#x3D;1&quot;</span><br></pre></td></tr></table></figure>
+
+<h2 id="更改salve物理网卡的配置文件"><a href="#更改salve物理网卡的配置文件" class="headerlink" title="更改salve物理网卡的配置文件"></a>更改salve物理网卡的配置文件</h2><p>例如 网卡 eno1 ， eno2 做成bond 。</p>
+<p>vim  /etc/sysconfig/network-scripts/ifcfg-eno1</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DEVICE&#x3D;eno1</span><br><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">BOOTPROTO&#x3D;none</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">NM_CONTROLLED&#x3D;no</span><br><span class="line">IPV6INIT&#x3D;no</span><br><span class="line">MASTER&#x3D;bond0</span><br><span class="line">SLAVE&#x3D;yes</span><br></pre></td></tr></table></figure>
+
+<p>vim /etc/sysconfig/network-scripts/ifcfg-eno2</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DEVICE&#x3D;eno2</span><br><span class="line">TYPE&#x3D;Ethernet</span><br><span class="line">BOOTPROTO&#x3D;none</span><br><span class="line">ONBOOT&#x3D;yes</span><br><span class="line">NM_CONTROLLED&#x3D;no</span><br><span class="line">IPV6INIT&#x3D;no</span><br><span class="line">MASTER&#x3D;bond0</span><br><span class="line">SLAVE&#x3D;yes</span><br></pre></td></tr></table></figure>
+
+<p>修改完后重启。</p>
+<h2 id="检测bond的状态"><a href="#检测bond的状态" class="headerlink" title="检测bond的状态"></a>检测bond的状态</h2><p>cat /proc/net/bonding/bond0</p>
+<h1 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h1><p><a href="https://www.snel.com/support/setup-lacp-bonding-interface-centos-7/" target="_blank" rel="noopener">https://www.snel.com/support/setup-lacp-bonding-interface-centos-7/</a></p>
 
       
     </div>
@@ -576,7 +595,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">1.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#操作步骤"><span class="nav-number">1.</span> <span class="nav-text">操作步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建bond0网卡配置文件"><span class="nav-number">1.1.</span> <span class="nav-text">创建bond0网卡配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#更改salve物理网卡的配置文件"><span class="nav-number">1.2.</span> <span class="nav-text">更改salve物理网卡的配置文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#检测bond的状态"><span class="nav-number">1.3.</span> <span class="nav-text">检测bond的状态</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考资料"><span class="nav-number">2.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
             
 
           </div>
