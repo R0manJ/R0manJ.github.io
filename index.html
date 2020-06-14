@@ -397,12 +397,13 @@
             <h1 id="故障现象"><a href="#故障现象" class="headerlink" title="故障现象"></a>故障现象</h1><ul>
 <li>用户反馈应用访问特别慢。</li>
 <li>Windows Server中查看的磁盘IO状态，看到数据库相关的进程Response Time(ms)达到200以上。</li>
-<li>在虚拟化监控平台vRealize中查看磁盘总IO延迟：<ul>
-<li>总IOPS 延迟达到 10000 + </li>
+<li>在虚拟化监控平台vRealize中查看虚拟磁盘总IO延迟：<ul>
+<li>总IOPS达到 10000 + ；</li>
 </ul>
 </li>
 </ul>
-<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>找到IO的瓶颈，逐个扩容:</p>
+<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><p>服务器的IO过高，底层没有来得及处理IO请求，新的IO请求已进入，因此导致高延迟。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>找到IO的瓶颈，逐个扩容:</p>
 <ol>
 <li>硬件层调整，UCS的刀片IO更改默认值。</li>
 <li>虚拟化层调整，改用PV SCSI</li>
