@@ -410,6 +410,15 @@
 <li>操作系统层注册此SCSI控住器：</li>
 </ol>
 <figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">reg add HKLM\SYSTEM\CurrentControlSet\services\pvscsi\Parameters\Device / DriverParameter /t REG_SZ /d "RequestRingPages=<span class="number">32</span>,MaxQueueDepth=<span class="number">254</span>"</span><br></pre></td></tr></table></figure>
+
+<h1 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h1><h2 id="pvscsi-的-IO是多少？"><a href="#pvscsi-的-IO是多少？" class="headerlink" title="pvscsi 的 IO是多少？"></a>pvscsi 的 IO是多少？</h2><p>参考资料 ： </p>
+<ul>
+<li><a href="https://blogs.vmware.com/vsphere/2014/03/pvscsi-large-ios.html" target="_blank" rel="noopener">https://blogs.vmware.com/vsphere/2014/03/pvscsi-large-ios.html</a></li>
+<li><a href="https://blog.csdn.net/weixin_34054866/article/details/85184550" target="_blank" rel="noopener">https://blog.csdn.net/weixin_34054866/article/details/85184550</a></li>
+<li><a href="https://kb.vmware.com/s/article/1017652" target="_blank" rel="noopener">https://kb.vmware.com/s/article/1017652</a></li>
+<li><a href="https://blogs.vmware.com/performance/2010/02/highperformance-pvsci-storage-adapter-can-reduce-cpio-by-1030.html" target="_blank" rel="noopener">https://blogs.vmware.com/performance/2010/02/highperformance-pvsci-storage-adapter-can-reduce-cpio-by-1030.html</a></li>
+</ul>
+
           
         
       
@@ -1648,7 +1657,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2020/05/30/Linux%E4%B8%8B%E7%9A%84%E6%95%B4%E5%88%97%E5%8D%A1%E5%B7%A5%E5%85%B7/">
+    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2020/05/30/Linux%E4%B8%8B%E7%9A%84%E9%98%B5%E5%88%97%E5%8D%A1%E5%B7%A5%E5%85%B7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rohman.Zhu">
@@ -1667,7 +1676,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2020/05/30/Linux%E4%B8%8B%E7%9A%84%E6%95%B4%E5%88%97%E5%8D%A1%E5%B7%A5%E5%85%B7/" itemprop="url">Linux下的整列卡工具</a></h1>
+                <a class="post-title-link" href="/2020/05/30/Linux%E4%B8%8B%E7%9A%84%E9%98%B5%E5%88%97%E5%8D%A1%E5%B7%A5%E5%85%B7/" itemprop="url">Linux下的阵列卡工具</a></h1>
         
 
         <div class="post-meta">
