@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/default/" itemprop="url" rel="index">
-                    <span itemprop="name">default</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -394,7 +394,10 @@
       
         
           
-            
+            <h1 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h1><p>由于 OpenSSL 存在安全漏洞，官方建议升级至 OpenSSL 1.1.1 i 版本。</p>
+<h1 id="升级操作"><a href="#升级操作" class="headerlink" title="升级操作"></a>升级操作</h1><p>去官网下载安装包。</p>
+<h2 id="CentOS的编译安装"><a href="#CentOS的编译安装" class="headerlink" title="CentOS的编译安装"></a>CentOS的编译安装</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 编译安装需要提前安装好 gcc 和 make</span></span><br><span class="line">yum install gcc make</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入解压openssl目录</span></span><br><span class="line">tar xvf ./openssl-1.1.1i.tar.gz</span><br><span class="line"></span><br><span class="line"><span class="comment"># 进入解压后的目录</span></span><br><span class="line"><span class="built_in">cd</span> ./openssl-1.1.1i</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行配置文件，安装在 /usr/local/openssl</span></span><br><span class="line">./config --prefix=/usr/<span class="built_in">local</span>/openssl</span><br><span class="line"></span><br><span class="line"><span class="comment"># 执行编译并安装</span></span><br><span class="line">make &amp;&amp; make install</span><br></pre></td></tr></table></figure>
+
           
         
       
@@ -2194,7 +2197,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">73</span>
+                  <span class="site-state-item-count">74</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
