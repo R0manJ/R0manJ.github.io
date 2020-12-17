@@ -425,6 +425,24 @@
 <td align="center">硬盘</td>
 </tr>
 </tbody></table>
+<ul>
+<li>Cache（缓存），为了调高CPU和内存之间数据交换而设计.</li>
+<li>Buffer（缓冲）为了提高内存和硬盘（或其他I/O设备的数据交换而设计）</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Cache主要是针对读操作设计的，不过Cache概念可能容易混淆，我理解为CPU本身就有Cache，包括一级缓存、二级缓存、三级缓存，我们知道CPU所有的指令操作对接的都是内存，而CPU的处理能力远高于内存速度，所以为了不让CPU资源闲置，Intel等公司在CPU内部集成了一些Cache，但毕竟不能放太多电路在里面，所以这部分Cache并不是很大，主要是用来存放一些常用的指令和常用数据，真正大部分Cache的数据应该是占用内存的空间来缓存请求过的数据，即上面的Cached部分（这部分纯属个人理解，正确与否有待考证）。</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Buffer主要是针对写操作设计的，更细的说是针对内存和硬盘之间的写操作来设计的，目的是将写的操作集中起来进行，减少磁盘碎片和硬盘反复寻址过程，提高性能。</span><br></pre></td></tr></table></figure>
+
+<h1 id="常见问题"><a href="#常见问题" class="headerlink" title="常见问题"></a>常见问题</h1><h2 id="在Linux中频繁存取文件，物理内存很快用光，而cached一直在增长。"><a href="#在Linux中频繁存取文件，物理内存很快用光，而cached一直在增长。" class="headerlink" title="在Linux中频繁存取文件，物理内存很快用光，而cached一直在增长。"></a>在Linux中频繁存取文件，物理内存很快用光，而cached一直在增长。</h2><p>Linux会对每次请求过的数据缓存在cache里，好处就是CPU的处理速度远远高于内存，所以在CPU和内存通讯的时候可以快速从cache中命中结果返回。</p>
+<h2 id="Swap被占用。"><a href="#Swap被占用。" class="headerlink" title="Swap被占用。"></a>Swap被占用。</h2><p>内存可能不够了，才会占Swap，所以Swap可以作为服务器监控的一项指标，引起注意。</p>
+<h1 id="手动清理Swap和buffers-cache"><a href="#手动清理Swap和buffers-cache" class="headerlink" title="手动清理Swap和buffers/cache"></a>手动清理Swap和buffers/cache</h1><h2 id="清理swap"><a href="#清理swap" class="headerlink" title="清理swap"></a>清理swap</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">swapoff -a &amp;&amp; swapon -a</span><br><span class="line"></span><br><span class="line"><span class="comment">#如果已经使用了Swap，且当前清空下+buffers/cache还有空间，在执行  swapoff -a操作时，会触发把Swap中的内容交换到内存中，数据不会丢失。</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>此操作相当于 swap空间 “重启”。</p>
+</blockquote>
+<h2 id="清理buffers-、-cache"><a href="#清理buffers-、-cache" class="headerlink" title="清理buffers 、 cache"></a>清理buffers 、 cache</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># sync 目的是将缓存的内容写回到硬盘中</span></span><br><span class="line">sync</span><br><span class="line"></span><br><span class="line"><span class="comment"># 修改drop_caches的值为3，默认为0，改为3系统会清理缓存的内容。</span></span><br><span class="line"><span class="built_in">echo</span> 3 &gt; /proc/sys/vm/drop_caches</span><br><span class="line"></span><br><span class="line"><span class="comment">#sleep 2让上述指令执行完毕</span></span><br><span class="line">sleep 2</span><br><span class="line"></span><br><span class="line"><span class="comment"># 改为默认值</span></span><br><span class="line"><span class="built_in">echo</span> 0 &gt; /proc/sys/vm/drop_caches</span><br></pre></td></tr></table></figure>
+
+
 
           
         
