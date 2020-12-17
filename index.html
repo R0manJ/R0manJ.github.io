@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/default/" itemprop="url" rel="index">
-                    <span itemprop="name">default</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -394,7 +394,9 @@
       
         
           
-            
+            <h1 id="通过-free-查看Linux的内存"><a href="#通过-free-查看Linux的内存" class="headerlink" title="通过 free 查看Linux的内存"></a>通过 free 查看Linux的内存</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># total 总内存大小</span></span><br><span class="line"><span class="comment"># used 已使用的内存大小（这里包含 cached 、 buffers 、 shared 部分）</span></span><br><span class="line"><span class="comment"># free ： 空闲的内存大小。</span></span><br><span class="line"><span class="comment"># shared： 进程间共享的存储（一般不会使用，可以忽略）</span></span><br><span class="line"><span class="comment"># buffers： 内存中写完的东西缓存起来，这样快速响应请求，后面数据再定期刷到磁盘上。</span></span><br><span class="line"><span class="comment"># cached：内存中读完缓存起来内容占的大小。（这部分是为了下次查询时能快速返回）</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -/+ buffers/cache 看做两部分：</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># -buffers/cache：正在使用的内存大小（注意不是used部分，因为buffers和cached并不是正在使用的，组织和人民需要是它们是可以释放的），其值=used-buffers-cached。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#+buffers/cache：可用的内存大小（同理也不是free表示的部分），其值=free+buffers+cached。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#Swap：硬盘上交换分区的使用大小。</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#设计的目的就是当上面提到的+buffers/cache表示的可用内存都已使用完，新的读写请求过来后，会把内存中的部分数据写入磁盘，从而把磁盘的部分空间当做虚拟内存来使用。</span></span><br></pre></td></tr></table></figure>
+
+
           
         
       
