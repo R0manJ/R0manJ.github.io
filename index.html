@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/default/" itemprop="url" rel="index">
-                    <span itemprop="name">default</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -394,7 +394,10 @@
       
         
           
-            
+            <h1 id="故障现象"><a href="#故障现象" class="headerlink" title="故障现象"></a>故障现象</h1><p>服务器KVM安装Ubuntu 20.04 的时候，会自动进入安装盘检查。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>按 E 编辑 安装选项的第一项 “Install Ubuntu Server”</p>
+<p>在linux 那行添加 fsck.mode=skip 后，按 ctrl + x 启动。</p>
+
           
         
       
