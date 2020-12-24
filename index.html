@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/default/" itemprop="url" rel="index">
-                    <span itemprop="name">default</span>
+                  <a href="/categories/Linux/" itemprop="url" rel="index">
+                    <span itemprop="name">Linux</span>
                   </a>
                 </span>
 
@@ -394,7 +394,7 @@
       
         
           
-            
+            <h1 id="etc-fstab"><a href="#etc-fstab" class="headerlink" title="/etc/fstab"></a>/etc/fstab</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">一般配置6个参数  ：&lt;file system&gt;，&lt;mount point&gt;，&lt;type&gt;，&lt;options&gt;，&lt;dump&gt;，&lt;pass&gt;</span><br><span class="line"></span><br><span class="line">file system</span><br><span class="line">文件系统，参考默认的fstab来看，这里只需要把硬盘的UUID正确配置即可；可以通过指令blkid，查看硬盘的UUID；</span><br><span class="line"></span><br><span class="line">mount point</span><br><span class="line">挂载路径，最终硬盘会被挂载到配置的这个路径下，但是这个路径必须先存在，提前创建好这个路径即可；</span><br><span class="line"></span><br><span class="line">type</span><br><span class="line">硬盘的文件系统类型，相应的有ntfs，ext4，fat，vfat等等，这里要根据实际情况设置，同样的也可以通过指令blkid，查看硬盘的TYPE；</span><br><span class="line"></span><br><span class="line">dump</span><br><span class="line">这个参数用来检查文件系统以多快频率进行备份，系统将认为其值为0，则不需要进行备份；</span><br><span class="line"></span><br><span class="line">pass</span><br><span class="line">这个参数用来决定在启动时需要被fsck扫描的文件系统的顺序，根文件系统&quot;&#x2F;&quot;对应该字段的值应该为1，其他的应该逐渐递增，如果设置为0则表示不扫描。</span><br></pre></td></tr></table></figure>
           
         
       
