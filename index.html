@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/default/" itemprop="url" rel="index">
-                    <span itemprop="name">default</span>
+                  <a href="/categories/Windows-Server/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows Server</span>
                   </a>
                 </span>
 
@@ -394,7 +394,29 @@
       
         
           
-            
+            <h1 id="背景需求"><a href="#背景需求" class="headerlink" title="背景需求"></a>背景需求</h1><p>用户需要安装驱动，需要禁用驱动数字签名检测。</p>
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>方法一：</p>
+<ol>
+<li>依次选择开始-设置-更新和安全-恢复-立即重新启动。</li>
+<li>在启动设置页面,依次选择疑难解答-高级选项-启动设置-重启。</li>
+<li>系统重新启动以后，在启动设置页面按”7”或者”F7”选择禁用驱动程序强制签名。</li>
+</ol>
+<p>方法二：</p>
+<ol>
+<li>以管理员方式打开 CMD </li>
+<li>输入指令 bcdedit.exe /set nointegritychecks on  回车</li>
+<li>重启PC</li>
+</ol>
+<blockquote>
+<p>如果需要改回来，则输入指令 bcdedit.exe /set nointegritychecks off ， 重启</p>
+</blockquote>
+<p>进入测试模式</p>
+<ol>
+<li>以管理员方式打开 CMD </li>
+<li>输入指令   bcdedit /set testsigning on ， 回车</li>
+<li>重启PC</li>
+</ol>
+
           
         
       
