@@ -324,8 +324,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/default/" itemprop="url" rel="index">
-                    <span itemprop="name">default</span>
+                  <a href="/categories/Windows-Server/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows Server</span>
                   </a>
                 </span>
 
@@ -394,7 +394,14 @@
       
         
           
-            
+            <h1 id="故障现象"><a href="#故障现象" class="headerlink" title="故障现象"></a>故障现象</h1><p>服务器从Windows Server 2008 升级至 Windows Server 2012R2 。服务器会在一个小时内自动关机。</p>
+<h1 id="原因分析"><a href="#原因分析" class="headerlink" title="原因分析"></a>原因分析</h1><p>查看系统日志</p>
+<p>有以下信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">以下是日志信息：</span><br><span class="line"></span><br><span class="line">进程 C:\WINDOWS\system32\wlms\wlms.exe (DESKTOP-V470) 由于以下原因已代表用户 NT AUTHORITY\SYSTEM 启动计算机 DESKTOP-V470 的 关机: 其他(计划内)</span><br><span class="line"></span><br><span class="line"> 原因代码: 0x80000000</span><br><span class="line"> 关机类型: 关机</span><br><span class="line"> 注释: 此 Windows 安装的许可证期限已过期。即将关闭操作系统。</span><br></pre></td></tr></table></figure>
+
+<h1 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h1><p>将服务器激活</p>
+<h2 id="使用key激活"><a href="#使用key激活" class="headerlink" title="使用key激活"></a>使用key激活</h2><p>输入正确的key，联网激活。</p>
+<h2 id="制定kms服务器，连接kms服务器激活"><a href="#制定kms服务器，连接kms服务器激活" class="headerlink" title="制定kms服务器，连接kms服务器激活"></a>制定kms服务器，连接kms服务器激活</h2><figure class="highlight bat"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">slmgr.vbs /skms [KMS服务器地址]</span><br><span class="line"></span><br><span class="line">slmgr.vbs /ato</span><br></pre></td></tr></table></figure>
           
         
       
