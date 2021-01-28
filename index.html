@@ -1144,8 +1144,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/default/" itemprop="url" rel="index">
-                    <span itemprop="name">default</span>
+                  <a href="/categories/Windows-Server/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows Server</span>
                   </a>
                 </span>
 
@@ -1214,7 +1214,20 @@
       
         
           
-            
+            <h1 id="文件服务器"><a href="#文件服务器" class="headerlink" title="文件服务器"></a>文件服务器</h1><p>DFS（Distributed File System）分布式文件系统</p>
+<h2 id="Failover-Clust"><a href="#Failover-Clust" class="headerlink" title="Failover Clust"></a>Failover Clust</h2><p>主要用于后端存储服务器（SQL Server，Exchange Mailbox ，FS）</p>
+<p>前提条件：</p>
+<ol>
+<li>必须要域架构</li>
+<li>标准的Cluster需要的共享存储（SQL Server的 Always on）</li>
+<li>仲裁服务器（服务器总数为偶数，则需要仲裁服务器。因为偶数个服务器无法裁决集群中的服务器健康状态，需要有投票节点。）</li>
+</ol>
+<p>群集的两种模式：</p>
+<ol>
+<li>Active/Passive:主备模式</li>
+<li>Active/Active:双主模式</li>
+</ol>
+
           
         
       
