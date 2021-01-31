@@ -270,6 +270,201 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2021/01/31/Windows-%E5%8A%A8%E6%80%81%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rohman.Zhu">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="R0hman の 实验室">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2021/01/31/Windows-%E5%8A%A8%E6%80%81%E8%AE%BF%E9%97%AE%E6%8E%A7%E5%88%B6/" itemprop="url">Windows-动态访问控制</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2021-01-31T17:51:27+08:00">
+                2021-01-31
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Windows-Server/" itemprop="url" rel="index">
+                    <span itemprop="name">Windows Server</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Words count in article&#58;</span>
+                
+                <span title="Words count in article">
+                  
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">Reading time &asymp;</span>
+                
+                <span title="Reading time">
+                  
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="DAC动态访问控制"><a href="#DAC动态访问控制" class="headerlink" title="DAC动态访问控制"></a>DAC动态访问控制</h1><p>文件的访问控制是基于 NTFS 文件系统来执行的。因此要使用此特性，文件系统必须为NTFS。</p>
+<h2 id="NTFS-特性"><a href="#NTFS-特性" class="headerlink" title="NTFS 特性"></a>NTFS 特性</h2><ol>
+<li>节约空间</li>
+<li>磁盘压缩</li>
+<li>更加安全</li>
+<li>EFS加密</li>
+<li>磁盘配额</li>
+<li>卷影副本</li>
+<li>单个文件最大支持64GB</li>
+</ol>
+<h2 id="访问控制"><a href="#访问控制" class="headerlink" title="访问控制"></a>访问控制</h2><p>操作流程：</p>
+<ol>
+<li>DC中启用足额策略：计算机管理-系统-KDC-KDC支持声明、复合身份验证和Kerberos Armoring</li>
+<li>声明属性</li>
+<li>创建策略</li>
+</ol>
+<p>Claim Types 声明<br>Central Access Rules 规则<br>Central Access Policy 策略（包含多个规则）</p>
+<blockquote>
+<p>Policy 通过组策略发布，在客户端生效。</p>
+</blockquote>
+<h3 id="“拒绝优先”"><a href="#“拒绝优先”" class="headerlink" title="“拒绝优先”"></a>“拒绝优先”</h3><p>ACL列表中，依次从上至下执行，被列为拒绝权限的用户，优先执行。</p>
+<h2 id="需求场景"><a href="#需求场景" class="headerlink" title="需求场景"></a>需求场景</h2><p>创建一个public的文件夹，仅允许公司内的主管访问。</p>
+<h3 id="传统做法"><a href="#传统做法" class="headerlink" title="传统做法"></a>传统做法</h3><p>创建一个安全组，将主管的AD拖进同一个安全组，然后再对Public进行授权。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2021/01/31/Windows%E6%B4%BB%E5%8A%A8%E7%9B%AE%E5%BD%95%E5%AD%A6%E4%B9%A0/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -461,7 +656,22 @@
 <p>子域与父域是信任关系。</p>
 </blockquote>
 <p>父域的管理员 rohman.cn/rohman.zhu 无法管理两个子域，仅有读取权限。</p>
-<h2 id="关于域是管理边界"><a href="#关于域是管理边界" class="headerlink" title="关于域是管理边界"></a>关于域是管理边界</h2><h2 id="关于域是一个复制单元"><a href="#关于域是一个复制单元" class="headerlink" title="关于域是一个复制单元"></a>关于域是一个复制单元</h2><h2 id="目录树与目录林"><a href="#目录树与目录林" class="headerlink" title="目录树与目录林"></a>目录树与目录林</h2><p>目录树类似于一个内家庭不同家庭成员分支。<br>目录林类似于一个家族内的不同家庭分支。</p>
+<h2 id="关于域是管理边界"><a href="#关于域是管理边界" class="headerlink" title="关于域是管理边界"></a>关于域是管理边界</h2><h2 id="关于域是一个复制单元"><a href="#关于域是一个复制单元" class="headerlink" title="关于域是一个复制单元"></a>关于域是一个复制单元</h2><ol>
+<li>域中的DC的数据库是相互复制的（目的是为了确保多个副本）</li>
+<li>同一个站点中，默认15s复制一次。不同站点的复制频率则取决于站点链路的频率。</li>
+<li>复制类型有两种：多主复制、单主复制。</li>
+</ol>
+<p>活动目录数据库有三个逻辑分区：Domain ， Configuration ， Schema ；同一个域中的DC，三个分区都会数据同步；如果不是同一个域，则只同步Configuration 、 Schema分区。</p>
+<h2 id="目录树与目录林"><a href="#目录树与目录林" class="headerlink" title="目录树与目录林"></a>目录树与目录林</h2><p>目录树类似于一个内家庭不同家庭成员分支。<br>目录林类似于一个家族内的不同家庭分支。</p>
+<h2 id="物理结构"><a href="#物理结构" class="headerlink" title="物理结构"></a>物理结构</h2><p>站点表示的是一个物理区域。</p>
+<h3 id="站点"><a href="#站点" class="headerlink" title="站点"></a>站点</h3><p>好处：可以让当地的服务器寻找当地的DC去验证。只有在本地站点出现故障的情况下，才会去其他站点做验证。</p>
+<p>【站点同步】</p>
+<p>默认触发：默认情况下，站点是180分钟发起一次同步。<br>手动触发：“Active Domain站点和服务” 选中对应站点的NTDS Setting选中链路，右键-立即复制</p>
+<p>验证成功的前提条件：</p>
+<ol>
+<li>输入DC中存在的账户，并且是正确的账户与密码。</li>
+<li>DC中能找到当前登录的计算机。</li>
+</ol>
 
           
         
@@ -2009,180 +2219,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://github.com/r0manj/2020/12/23/OS-CIS/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rohman.Zhu">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="R0hman の 实验室">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/12/23/OS-CIS/" itemprop="url">Linux操作系统的CIS设置</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-12-23T23:08:26+08:00">
-                2020-12-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux/" itemprop="url" rel="index">
-                    <span itemprop="name">Linux</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Words count in article&#58;</span>
-                
-                <span title="Words count in article">
-                  
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">Reading time &asymp;</span>
-                
-                <span title="Reading time">
-                  
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h1 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h1><p>需要设置与信息安全相关的选项，以满足公司的信息安全规范。</p>
-<h1 id="资料来源"><a href="#资料来源" class="headerlink" title="资料来源"></a>资料来源</h1><p><a href="https://downloads.cisecurity.org/#/" target="_blank" rel="noopener">https://downloads.cisecurity.org/#/</a></p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2233,7 +2269,7 @@
               
                 <a href="/archives/%7C%7C%20archive">
               
-                  <span class="site-state-item-count">229</span>
+                  <span class="site-state-item-count">230</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
