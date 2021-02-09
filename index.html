@@ -394,7 +394,12 @@
       
         
           
-            
+            <h1 id="需求背景"><a href="#需求背景" class="headerlink" title="需求背景"></a>需求背景</h1><ol>
+<li>服务器直连SAN存储，需要从SAN存储划分1个1T的硬盘给服务器使用。</li>
+<li>SAN已经在底层划分1个1T的硬盘。</li>
+</ol>
+<h1 id="操作过程"><a href="#操作过程" class="headerlink" title="操作过程"></a>操作过程</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 确定当前的磁盘与映射关系</span></span><br><span class="line">df -Th</span><br><span class="line">pvs</span><br><span class="line">ls /dev/mapper/*</span><br><span class="line"></span><br><span class="line"><span class="comment"># 发起磁盘扫描</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"- - -"</span> &gt; /sys/class/scsi_host/host0/scan</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"- - -"</span> &gt; /sys/class/scsi_host/host1/scan</span><br><span class="line"><span class="built_in">echo</span> <span class="string">"- - -"</span> &gt; /sys/class/scsi_host/host2/scan</span><br><span class="line"></span><br><span class="line"><span class="comment"># 将目标磁盘做成LVM卷</span></span><br><span class="line">fdisk /dev/mapper/ma...</span><br><span class="line"></span><br><span class="line">pvcreate</span><br><span class="line">vgcreate vg-data</span><br><span class="line">lvcreate -n lv-data</span><br><span class="line"></span><br><span class="line">mkfs.xfs /dev/vg-data/lv-data</span><br></pre></td></tr></table></figure>
+
           
         
       
